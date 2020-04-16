@@ -14,7 +14,7 @@ public class Main {
     public static long totalSum = 1;
 	public static void main(String[] args)
 	{
-		System.out.print("Enter the number to factorialize (limit 20): ");
+		System.out.print("Enter the number to factorialize (limit 25): ");
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
         if (number > 100000) number = 100000;
