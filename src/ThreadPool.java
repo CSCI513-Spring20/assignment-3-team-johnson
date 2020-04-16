@@ -17,7 +17,6 @@ public class ThreadPool {
 	private boolean shutdown = false;
 	private final Queue<Task> queue;
 	private final ArrayList<Task> totalTasks;
-	public long totalSum;
 
 	public ThreadPool() {
 	        queue = new LinkedList<Task>();
@@ -81,7 +80,6 @@ public class ThreadPool {
 	                try {
 	                    task.run();
 	                    task.setCompleted();
-	                    if (task.calc > 0) totalSum *= task.calc;
 	                    
 	                } catch (RuntimeException e) {
 	                    System.out.println("ERROR: Runtime exception...: " + e.getMessage());
