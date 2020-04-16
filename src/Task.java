@@ -9,32 +9,25 @@
 public class Task extends AbstractTask{
 	
 	private int num;
-	final private int end = 1;
+	public long calc;
+	
     public Task(int n) {
         super("Number " + n);
         this.num = n;
+    }
+    
+    public long calcFact(long n)
+    {		
+    	long fact = n * (n-1);
+   		return fact;
     }
 
 
 	@Override
 	public void run() 
 	{
-		long fact = 0;
-		int start = num;
-		while (num > end) 
-		{
-			try 
-		    {
-			    Thread.sleep(100);
-		    } 
-		    catch (InterruptedException e) 
-		    {
-		    	e.printStackTrace();
-		    }
-			fact += num * (num - 1);
-		    num--;	
-			System.out.println(Thread.currentThread().getName() + ": calculated factorial " + fact);
-		}
-		System.out.println(Thread.currentThread().getName() + ": calculated factorial of " + start + " = " + fact);
+		calc += calcFact(num);
+		System.out.println(Thread.currentThread().getName() + ": calculated " + num + " * " + (num - 1) + " = " + calc);
+		if (calc > 0) Main.totalSum *= calc;
 	}
 }
